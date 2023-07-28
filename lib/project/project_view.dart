@@ -199,7 +199,7 @@ class ProjectItems extends StatelessWidget {
                         title: Text(e,
                             style: GoogleFonts.montserrat(
                                     textStyle:
-                                        Theme.of(context).textTheme.bodyMedium)
+                                        Theme.of(context).textTheme.bodySmall)
                                 .copyWith(
                                     color: provider.theme == ThemeData.dark()
                                         ? Colors.white
@@ -214,13 +214,13 @@ class ProjectItems extends StatelessWidget {
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 // crossAxisSpacing: 8.0,
                                 // mainAxisSpacing: 10.0,
-                                mainAxisExtent: 40,
+                                mainAxisExtent: 30,
                                 crossAxisCount: 2),
                         itemCount: projectItem.technologies.length,
                         itemBuilder: (BuildContext context, int index) {
                           return ListTile(
                             leading: CircleAvatar(
-                              radius: 12,
+                              radius: 8,
                               backgroundColor:
                                   colors.elementAt(index % colors.length),
                             ),
@@ -229,7 +229,7 @@ class ProjectItems extends StatelessWidget {
                               style: GoogleFonts.montserrat(
                                       textStyle: Theme.of(context)
                                           .textTheme
-                                          .bodyMedium)
+                                          .bodySmall)
                                   .copyWith(
                                       color: provider.theme == ThemeData.dark()
                                           ? Colors.white
@@ -254,6 +254,7 @@ class ProjectItem {
   final String title;
   final List<String> description;
   final List<String> technologies;
+  final String sourceCodeUrl;
 
   const ProjectItem(
       {Key? key,
@@ -261,7 +262,9 @@ class ProjectItem {
       required this.darkImage,
       required this.title,
       required this.description,
-      required this.technologies});
+      required this.technologies,
+      required this.sourceCodeUrl,
+      });
 }
 
 final kProjectItems = [
@@ -283,7 +286,9 @@ final kProjectItems = [
         "Express",
         "MonogDb",
         "Provider"
-      ], darkImage: 'images/flutterAmazonClone_dark.jpg'),
+      ],
+      darkImage: 'images/flutterAmazonClone_dark.jpg',
+      sourceCodeUrl: 'https://github.com/adhillatheef/flutter_amazon_clone'),
   const ProjectItem(
       image: "images/toDoIstHive.png",
       title: "ToDoIst",
@@ -297,7 +302,9 @@ final kProjectItems = [
         "Provider",
         "Notification",
         "Reminder",
-      ], darkImage: 'images/todoist_dark.png'),
+      ],
+      darkImage: 'images/todoist_dark.png',
+      sourceCodeUrl: 'https://github.com/adhillatheef/todoist_hive'),
   const ProjectItem(
       image: "images/expense_app_lite.png",
       title: "TrackMyFinance",
@@ -311,5 +318,7 @@ final kProjectItems = [
         "Bloc",
         "Hive",
         "Dark/Lite",
-      ], darkImage: 'images/expense_app_dark.png'),
+      ],
+      darkImage: 'images/expense_app_dark.png',
+      sourceCodeUrl: 'https://github.com/adhillatheef/pocket_money_new'),
 ];

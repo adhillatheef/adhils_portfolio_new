@@ -186,6 +186,18 @@ final certificationsItems = [
       dateOfIssue: "Jun 06, 2021",
       pdfPath: 'images/mta_python_fundamentals.png'),
   CertificationItem(
+      name: 'Flutter- Beginners Course',
+      institution: "Udemy",
+      credentials: "ude.my/UC-7ba0eacd-908f-4222-a8cf-c301dbef4923/",
+      dateOfIssue: "Sept 19, 2021",
+      pdfPath: 'images/flutter_beginners_course.jpeg'),
+  CertificationItem(
+      name: 'Flutter- Intermediate',
+      institution: "Udemy",
+      credentials: "ude.my/UC-2e8bb171-3500-4e2e-b286-84f9c3103b89/",
+      dateOfIssue: "Sept 20, 2021",
+      pdfPath: 'images/flutter_intermediate_course.jpeg'),
+  CertificationItem(
       name: 'The Complete 2021 Flutter Development Bootcamp with Dart',
       institution: "Udemy",
       credentials: "ude.my/UC-09c44ec9-6b6f-4ab5-a4dd-97bcd014fb6b/",

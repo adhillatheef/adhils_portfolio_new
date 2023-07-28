@@ -169,11 +169,11 @@ class DrawerView extends StatelessWidget {
                 onTap: navigateToEducation,
                 title: 'Education'),
             DrawerListTile(
-                color: ColorAssets.yellow,
+                color: ColorAssets.orange,
                 onTap: navigateToCertificates,
                 title: 'Certification'),
             DrawerListTile(
-                color: ColorAssets.yellow,
+                color: ColorAssets.purple,
                 onTap: navigateToAchievements,
                 title: 'Achievements'),
           ],

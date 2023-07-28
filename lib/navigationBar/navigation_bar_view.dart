@@ -42,35 +42,47 @@ class NavigationBarView extends StatelessWidget {
               // Image.asset(
               //   "/imageedit_4_4075437235.png",
               // ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(3)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ShaderMask(
-                    shaderCallback: (Rect bounds) {
-                      return const LinearGradient(
-                        colors: ColorAssets.all, // Define your gradient colors
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ).createShader(bounds);
-                    },
-                    child:  AutoSizeText(
-                      'Adhil Latheef',
-                      style: GoogleFonts.montserrat(textStyle: Theme.of(context).textTheme.headlineSmall).copyWith(
-                      color: Colors.white
-                  )
-                    ),
-                  ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ShaderMask(
+                  shaderCallback: (Rect bounds) {
+                    return const LinearGradient(
+                      colors: ColorAssets.all,
+                      // Define your gradient colors
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ).createShader(bounds);
+                  },
+                  child: AutoSizeText('Adhil Latheef',
+                      style: GoogleFonts.montserrat(
+                              textStyle:
+                                  Theme.of(context).textTheme.headlineSmall)
+                          .copyWith(color: Colors.white,fontWeight: FontWeight.bold)),
                 ),
               ),
               const Spacer(),
               ThemeButton(provider: provider),
-              IconButton(
-                icon: const Icon(Icons.menu),
-                onPressed: () => Scaffold.of(context).openEndDrawer(),
-              )
+              ShaderMask(
+                  shaderCallback: (Rect bounds) {
+                    return const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        ColorAssets.red,
+                        ColorAssets.blue,
+                        ColorAssets.orange,
+                        ColorAssets.purple,
+                      ],
+                    ).createShader(bounds);
+                  },
+                  child: IconButton(
+                    icon: const Icon(Icons.menu,color: Colors.white,),
+                    onPressed: () => Scaffold.of(context).openEndDrawer(),
+                  ))
+              // IconButton(
+              //   icon: const Icon(Icons.menu),
+              //   onPressed: () => Scaffold.of(context).openEndDrawer(),
+              // )
             ],
           ),
         );
@@ -82,27 +94,21 @@ class NavigationBarView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Row(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(3)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ShaderMask(
-                    shaderCallback: (Rect bounds) {
-                      return const LinearGradient(
-                        colors: ColorAssets.all, // Define your gradient colors
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ).createShader(bounds);
-                    },
-                    child: AutoSizeText(
-                        'Adhil Latheef',
-                        style: GoogleFonts.montserrat(textStyle: Theme.of(context).textTheme.headlineMedium).copyWith(
-                            color:   Colors.white
-                        )
-                    ),
-                  ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ShaderMask(
+                  shaderCallback: (Rect bounds) {
+                    return const LinearGradient(
+                      colors: ColorAssets.all, // Define your gradient colors
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ).createShader(bounds);
+                  },
+                  child: AutoSizeText('Adhil Latheef',
+                      style: GoogleFonts.montserrat(
+                              textStyle:
+                                  Theme.of(context).textTheme.headlineMedium)
+                          .copyWith(color: Colors.white,fontWeight: FontWeight.bold)),
                 ),
               ),
               // Image.asset(
@@ -164,7 +170,7 @@ class _ThemeButtonState extends State<ThemeButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: (){
+        onPressed: () {
           widget.provider.toggleTheme();
         },
         icon: widget.provider.theme == ThemeData.dark()
@@ -211,16 +217,19 @@ class NavigationBarItem extends StatelessWidget {
                   highlightColor: Colors.transparent,
                   onTap: onPressed,
                   child: Text(
-                    maxLines: 1,
-                    text,
-                    style: GoogleFonts.montserrat().copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: isHovered ? Colors.white : provider.theme==ThemeData.dark()?Colors.white:Colors.black
-                    )
-                    // TextStyle(
-                    //     fontWeight: FontWeight.bold,
-                    //     color: isHovered ? Colors.white : Colors.black),
-                  )),
+                      maxLines: 1,
+                      text,
+                      style: GoogleFonts.montserrat().copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: isHovered
+                              ? Colors.white
+                              : provider.theme == ThemeData.dark()
+                                  ? Colors.white
+                                  : Colors.black)
+                      // TextStyle(
+                      //     fontWeight: FontWeight.bold,
+                      //     color: isHovered ? Colors.white : Colors.black),
+                      )),
             ),
           ),
         );
