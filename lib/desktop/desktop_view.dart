@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../achievements/achievements.dart';
 import '../education/education.dart';
@@ -176,6 +177,16 @@ class DrawerView extends StatelessWidget {
                 color: ColorAssets.purple,
                 onTap: navigateToAchievements,
                 title: 'Achievements'),
+            DrawerListTile(
+                color: ColorAssets.green,
+                onTap: ()async {
+                    if (await canLaunch("https://www.linkedin.com/in/adhil-latheef")) {
+                      await launch("https://www.linkedin.com/in/adhil-latheef");
+                    } else {
+                      throw 'Could not launch "https://www.linkedin.com/in/adhil-latheef"';
+                    }
+                },
+                title: 'My Resume'),
           ],
         ),
       );

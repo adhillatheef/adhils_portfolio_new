@@ -194,7 +194,7 @@ class NavigationBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ThemeProvider>(context);
-    final isSmall = MediaQuery.of(context).size.width < 650;
+    // final isSmall = MediaQuery.of(context).size.width < 650;
     return Flexible(
       child: OnHover(builder: (isHovered) {
         return Padding(
